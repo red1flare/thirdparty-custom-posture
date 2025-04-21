@@ -21,7 +21,7 @@ async function evaluateDevices(devices) {
   
     // compare each device received by the worker with the serial numbers that should pass the posture check
     for (const key in POSTURE_PASS) {
-      if (POSTURE_PASS[key] === device.serial_number){
+      if (POSTURE_PASS[key] === device.mac_address){
         evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email+" /mac address: "+device.mac_address, score: 100}
         //console.log("Found match! serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email)
       }
