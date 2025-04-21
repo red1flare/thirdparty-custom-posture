@@ -17,12 +17,12 @@ async function evaluateDevices(devices) {
 
   let evaluations = {}
   devices.forEach(device => {
-    evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email, score: 0}
+    evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email+" /mac address: "+device.mac_address, score: 0}
   
     // compare each device received by the worker with the serial numbers that should pass the posture check
     for (const key in POSTURE_PASS) {
       if (POSTURE_PASS[key] === device.serial_number){
-        evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email, score: 100}
+        evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email+" /mac address: "+device.mac_address, score: 100}
         //console.log("Found match! serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email)
       }
     }
