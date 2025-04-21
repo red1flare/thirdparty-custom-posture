@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "custom-s2s-example-worker",
+  "version": "1.0.0",
+  "description": "An example worker that can be used to quickly implement the service side for custom device posture integrations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Justin Lu <jlu@cloudflare.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jose": "^5.8.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
+}

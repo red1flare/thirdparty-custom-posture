@@ -1,0 +1,69 @@
+info:
+  title: Mock API for Custom Device Posture Integrations
+  description: This is a mock sample spec for 3rd party APIs used for custom device posture integrations
+servers:
+  - url: https://api.example.com
+paths:
+  /:
+    post:
+      summary: Accepts a list of devices with identifying info and returns a list of 3rd party assessments for those devices
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            description: Content type of the request (should be application/json)
+        - name: Cf-Access-Jwt-Assertion
+          in: header
+          required: true
+          schema:
+            type: string
+            description: The JWT Access passes to the upstream API after successful service token authentication. 
+      requestBody:
+        content:
+          application/json:
+            schema:               
+              type: object
+              properties:
+                devices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      device_id:
+                        type: string
+                      email:
+                        type: string
+                      serial_number:
+                        type: string
+                      mac_address:
+                        type: string
+                      virtual_ipv4:
+                        type: string
+                      hostname:
+                        type: string
+                    required:
+                      - device_id
+      response:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    description: Map with Cloudflare device IDs (UUIDs) as keys and evaluations consisting of s2s_id and a score as the value.
+                    additionalProperties:
+                      type: object
+                      properties:
+                        s2s_id:
+                          type: string
+                          description: 3rd party device id. If a match was not found, this should be empty string.
+                          required: true
+                        score:
+                          type: integer
+                          description: A score between 0-100 returned by the 3rd party.
+                          required: true

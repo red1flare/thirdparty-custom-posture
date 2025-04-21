@@ -1,0 +1,18 @@
+name = "thirdparty-custom-posture"
+workers_dev = false
+compatibility_date = "2024-08-22"
+main = "index.js"
+
+# replace with your custom domain
+routes = [
+  { pattern = "customposture.jdores.xyz", custom_domain = true }
+]
+
+[observability]
+enabled = true
+
+# replace the variables with the your access policy, team domain and the serial number of the devices that should pass the posture check
+[vars]
+POLICY_AUD="8c7e41226fb0f5a1f2592b53bafd1b0c108ee101de79d11e4dd2393970895304"
+TEAM_DOMAIN="jdores.cloudflareaccess.com"
+POSTURE_PASS = { WIN10_VM_SERIAL = "8479-5166-5206-4065-3284-5980-02" , LENOVO_LAPTOP_SERIAL = "YD04512N" }
