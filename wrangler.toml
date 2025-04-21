@@ -13,6 +13,6 @@ enabled = true
 
 # replace the variables with the your access policy, team domain and the serial number of the devices that should pass the posture check
 [vars]
-POLICY_AUD="8c7e41226fb0f5a1f2592b53bafd1b0c108ee101de79d11e4dd2393970895304"
-TEAM_DOMAIN="jdores.cloudflareaccess.com"
+POLICY_AUD="5d0cbc268ebad4371b225d048eac8761234bbbe6da38ab94dd7f43c9c8d2b481"
+TEAM_DOMAIN="red1team.cloudflareaccess.com"
 POSTURE_PASS = { WIN10_VM_SERIAL = "8479-5166-5206-4065-3284-5980-02" , LENOVO_LAPTOP_SERIAL = "YD04512N" }
