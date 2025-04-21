@@ -7,7 +7,7 @@ async function computePostureScores(devices) {
 
 /**
  * Where the business logic of this custom provider check happens
- * In this simple prototype, the devices with serial numbers set in wrangler.toml will have a score of 100.
+ * In this simple prototype, the devices with MAC addresses set in wrangler.toml will have a score of 100.
  * Otherwise, the score is 0.
  */
 async function evaluateDevices(devices) {
@@ -17,12 +17,12 @@ async function evaluateDevices(devices) {
 
   let evaluations = {}
   devices.forEach(device => {
-    evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email+" /mac address: "+device.mac_address, score: 0}
+    evaluations[device.device_id] =  {s2s_id: " /user: "+device.email+" /mac address: "+device.mac_address, score: 0}
   
     // compare each device received by the worker with the serial numbers that should pass the posture check
     for (const key in POSTURE_PASS) {
       if (POSTURE_PASS[key] === device.mac_address){
-        evaluations[device.device_id] =  {s2s_id: "serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email+" /mac address: "+device.mac_address, score: 100}
+        evaluations[device.device_id] =  {s2s_id: " /user: "+device.email+" /mac address: "+device.mac_address, score: 100}
         //console.log("Found match! serial number: "+device.serial_number+" /hostname: "+device.hostname+" /user: "+device.email)
       }
     }
