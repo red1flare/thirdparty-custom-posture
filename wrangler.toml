@@ -15,4 +15,9 @@ enabled = true
 [vars]
 POLICY_AUD="5d0cbc268ebad4371b225d048eac8761234bbbe6da38ab94dd7f43c9c8d2b481"
 TEAM_DOMAIN="red1team.cloudflareaccess.com"
-POSTURE_PASS = { MACADD = "bc:24:11:9c:a5:62" , MACADD = "bc:24:11:36:2e:5b" , MACADD = "bc:24:11:9c:a5:63" }
+POSTURE_PASS = {
+  "device1": "bc:24:11:9c:a5:62",
+  "device2": "bc:24:11:36:2e:5b",
+  "device3": "11:22:33:44:55:66"
+}
+#POSTURE_PASS = { MACADD = "bc:24:11:9c:a5:62" , MACADD = "bc:24:11:36:2e:5b" , MACADD = "bc:24:11:9c:a5:63" }
