@@ -5,7 +5,7 @@ main = "index.js"
 
 # replace with your custom domain
 routes = [
-  { pattern = "customposture.jdores.xyz", custom_domain = true }
+  { pattern = "customposture.red1flare.com", custom_domain = true }
 ]
 
 [observability]
